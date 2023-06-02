@@ -11,7 +11,7 @@ var client *openai.Client
 func init() {
 	apiKey := conf.ApplicationConfig.String("openai.apikey")
 	config := openai.DefaultConfig(apiKey)
-	config.BaseURL = "https://www.medleap.ai/v1"
+	config.BaseURL = "https://api.openai-proxy.com/v1"
 	client = openai.NewClientWithConfig(config)
 }
 
@@ -19,7 +19,7 @@ func CreateChatCompletion(content string) (resp openai.ChatCompletionResponse, e
 	resp, err = client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
-			Model:       openai.GPT3Dot5Turbo,
+			Model:       openai.GPT3Dot5Turbo0301,
 			Temperature: 0.5,
 			Messages: []openai.ChatCompletionMessage{
 				{
