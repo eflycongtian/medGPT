@@ -6,13 +6,6 @@ import (
 	"sinohealth.com/medGPT/model"
 )
 
-func Home(ctx *gin.Context) {
-	ctx.HTML(http.StatusOK, "chat.tmpl", gin.H{
-		"code":  http.StatusOK,
-		"title": "OpenAI ChatGPT 医生接诊助手",
-	})
-}
-
 func GenRx(ctx *gin.Context) {
 	content, _ := ctx.GetQuery("content")
 	content = "生成一个治疗" + content + "的西药处方，表头包含：药品名称、规格、厂家、用法用量、天数、数量、注意事项,直接只输出json数据,数据格式:['drugName':'','spec':'','company':'','usage':'','days':'','quantity':'','notice':''],不要多余文本内容,注意json格式正确"

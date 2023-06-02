@@ -7,7 +7,6 @@ import (
 
 func initRoute(engine *gin.Engine) {
 	engine.GET("/ping", handler.GetPing)
-	engine.GET("/", handler.Home)
 	engine.GET("/gpt/genRx", handler.GenRx)
 	engine.GET("/gpt/genMedicalRecord", handler.GenMedicalRecord)
 }
